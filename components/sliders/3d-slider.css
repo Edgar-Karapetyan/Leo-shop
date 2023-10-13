@@ -1,0 +1,191 @@
+:root {
+  --crsl-bg: linear-gradient(174deg, #0000ff 0%, #7700ff 30%, #c000ff 100%);
+  --left_right: linear-gradient(174deg, #0000ff 0%, #7700ff 30%, #c000ff 100%);
+  --box-shadow: linear-gradient(174deg, #0000ff 0%, #7700ff 30%, #c000ff 100%);
+  --box-border: #8300ff;
+}
+
+.carousel {
+  position: relative;
+  display: block;
+  width: 100%;
+  z-index: 5;
+}
+
+.carousel__prev,
+.carousel__next {
+  position: absolute;
+  bottom: -30px;
+  transition: transform 0.25s ease;
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px 0 #fe5bff;
+  border-radius: 100%;
+  padding: 8px;
+  transition: 250ms;
+  cursor: pointer;
+}
+.carousel__prev div,
+.carousel__next div {
+  width: 35px;
+  height: 35px;
+  background-color: #a142ff;
+  transition: 250ms;
+  -webkit-clip-path: polygon(60% 36%, 60% 36%, 60% 10%, 100% 50%, 60% 90%, 60% 62%, 60% 62%);
+          clip-path: polygon(60% 36%, 60% 36%, 60% 10%, 100% 50%, 60% 90%, 60% 62%, 60% 62%);
+  transform: translate(-8px, 0);
+}
+.carousel__prev:hover div,
+.carousel__next:hover div {
+  background-color: #d755ff;
+  transform: scale(1.1);
+  -webkit-clip-path: polygon(0 30%, 60% 36%, 50% 7%, 100% 50%, 49% 93%, 60% 62%, 0 70%);
+          clip-path: polygon(0 30%, 60% 36%, 50% 7%, 100% 50%, 49% 93%, 60% 62%, 0 70%);
+}
+.carousel__prev:active,
+.carousel__next:active {
+  box-shadow: 0 0 15px 1px #ffffff;
+}
+.carousel__prev:active div,
+.carousel__next:active div {
+  transform: translate(4px, 0) scale(1.1);
+  background-color: #ffffff;
+}
+
+.carousel__prev {
+  left: 40%;
+}
+.carousel__prev div {
+  transform: rotate(180deg) translate(-8px, 0);
+}
+.carousel__prev:hover div {
+  transform: rotate(180deg) scale(1.1);
+}
+.carousel__prev:active {
+  box-shadow: 0 0 15px 1px #ffffff;
+}
+.carousel__prev:active div {
+  transform: rotate(180deg) translate(4px, 0) scale(1.1);
+  background-color: #ffffff;
+}
+
+.carousel__next {
+  right: 40%;
+}
+
+.carousel__body {
+  width: 100%;
+  padding: 200px 0 70px 0;
+  overflow-x: hidden;
+}
+.carousel__body .carousel__slider {
+  position: relative;
+  transition: transform 1s ease-in-out;
+  background: var(--crsl-bg);
+}
+.carousel__body .carousel__slider__item {
+  position: relative;
+  display: block;
+  float: left;
+  box-sizing: border-box;
+  max-width: 400px;
+  max-height: 500px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.carousel__body .carousel__slider__item .item__3d-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+  transform-style: preserve-3d;
+  background: var(--crsl-bg);
+}
+.carousel__body .carousel__slider__item .item__3d-frame:after {
+  content: "";
+  position: absolute;
+  bottom: -15%;
+  width: 100%;
+  height: 40px;
+  background: var(--box-shadow);
+  box-shadow: 0px 0px 5px 5px var(--box-shadow);
+  transform: rotateX(90deg) translate3d(0px, -20px, 0px);
+  opacity: 0.85;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-color: var(--box-border);
+  background: var(--box-bg);
+  border-width: 3px;
+  border-style: solid;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box .item__3d-frame__box-inner {
+  position: absolute;
+  bottom: 15%;
+  width: 100%;
+  color: white;
+  font-family: "Mirza";
+  text-align: center;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box .item__3d-frame__box-inner img {
+  height: auto;
+  transition: 250ms;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box .item__3d-frame__box-inner h2 {
+  width: 100%;
+  color: white;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box .item__3d-frame__box-inner p {
+  color: white;
+  margin: 20px 0;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box .item__3d-frame__box-inner button {
+  font-family: "Mirza", cursive, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #e6e6e6;
+  padding: 5px 10px;
+  border-radius: 8px;
+  box-shadow: 0px -2px 8px 2px rgba(254, 252, 255, 0.5215686275);
+  background-color: rgba(137, 26, 208, 0.4117647059);
+  transform: translate(2px, 2px);
+  transition: 250ms;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box:hover {
+  cursor: pointer;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box:hover button {
+  box-shadow: 0px 0px 7px -5px rgba(0, 0, 0, 0.631372549);
+  background-color: rgba(156, 0, 255, 0.4117647059);
+  transform: translate(0px, 0px);
+  color: white;
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box:hover img {
+  transform: scale(1.2);
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box--right {
+  top: 0;
+  width: 40px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  right: 0;
+  border-right-width: 5px;
+  transform: translate3d(-1px, 0, -40px) rotateY(90deg);
+  transform-origin: 100%;
+  background: var(--left_right);
+}
+.carousel__body .carousel__slider__item .item__3d-frame__box--left {
+  top: 0;
+  width: 40px;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  left: 0;
+  border-left-width: 5px;
+  transform: translate3d(1px, 0, -40px) rotateY(-90deg);
+  transform-origin: 0%;
+  background: var(--left_right);
+}/*# sourceMappingURL=3d-slider.css.map */
